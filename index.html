@@ -7,60 +7,67 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 font-sans overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <div>
-                        <!-- Website Logo -->
-                        <a href="#" class="flex items-center py-4 px-2">
-                            <span class="font-semibold text-gray-500 text-2xl">Perlisse Accesorios</span>
-                        </a>
-                    </div>
-                    <!-- Primary Nav -->
-                    <div class="hidden md:flex items-center space-x-1">
-                        <a href="#" class="py-4 px-2 text-pink-600 font-semibold border-b-4 border-pink-600">Novedades</a>
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-pink-600 transition duration-300">Anillos</a>
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-pink-600 transition duration-300">Pulseras</a>
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-pink-600 transition duration-300">Collares</a>
-                        <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-pink-600 transition duration-300">Relicarios</a>
-                    </div>
-                </div>
-                <!-- Secondary Nav -->
-                <div class="hidden md:flex items-center space-x-3">
-                    <a href="#" class="py-2 px-2 text-gray-500 hover:text-pink-600 transition duration-300">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <a href="#" class="py-2 px-2 text-gray-500 hover:text-pink-600 transition duration-300">
-                        <i class="fas fa-user"></i>
-                    </a>
-                    <a href="#" class="py-2 px-2 text-gray-500 hover:text-pink-600 transition duration-300 relative">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="absolute -top-1 -right-1 bg-pink-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
-                    </a>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button class="outline-none mobile-menu-button">
-                        <i class="fas fa-bars text-gray-500 text-xl"></i>
-                    </button>
-                </div>
-            </div>
+    <nav>
+    <!-- Sidebar Desktop -->
+    <div class="hidden md:fixed md:top-0 md:left-0 md:h-full md:w-56 md:bg-white md:shadow-lg md:flex md:flex-col z-50">
+        <div class="py-8 px-4">
+        <a href="#" class="block font-semibold text-gray-500 text-2xl text-center">Perlisse Accesorios</a>
         </div>
-        <!-- Mobile menu -->
-        <div class="hidden mobile-menu">
-            <ul class="">
-                <li class="active"><a href="#" class="block text-sm px-2 py-4 text-white bg-pink-600 font-semibold">Home</a></li>
-                <li><a href="#" class="block text-sm px-2 py-4 hover:bg-pink-600 hover:text-white transition duration-300">Women</a></li>
-                <li><a href="#" class="block text-sm px-2 py-4 hover:bg-pink-600 hover:text-white transition duration-300">Girls</a></li>
-                <li><a href="#" class="block text-sm px-2 py-4 hover:bg-pink-600 hover:text-white transition duration-300">Shoes</a></li>
-                <li><a href="#" class="block text-sm px-2 py-4 hover:bg-pink-600 hover:text-white transition duration-300">Sale</a></li>
-            </ul>
+        <ul class="flex flex-col gap-2 px-4">
+        <li>
+            <a href="#" class="block py-3 px-2 text-pink-600 font-semibold border-l-4 border-pink-600 bg-pink-50">Novedades</a>
+        </li>
+        <li>
+            <a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Anillos</a>
+        </li>
+        <li>
+            <a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Pulseras</a>
+        </li>
+        <li>
+            <a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Collares</a>
+        </li>
+        <li>
+            <a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Relicarios</a>
+        </li>
+        </ul>
+        <div class="mt-auto flex flex-col items-center gap-4 py-8">
+        <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl"><i class="fas fa-search"></i></a>
+        <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl"><i class="fas fa-user"></i></a>
+        <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl relative">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+        </a>
         </div>
+    </div>
+    <!-- Navbar Mobile -->
+    <div class="md:hidden bg-white shadow-lg px-4 py-3 flex justify-between items-center">
+        <a href="#" class="font-semibold text-gray-500 text-xl">Perlisse Accesorios</a>
+        <button class="outline-none mobile-menu-button">
+        <i class="fas fa-bars text-gray-500 text-2xl"></i>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="hidden mobile-menu md:hidden bg-white shadow-lg">
+        <ul>
+        <li><a href="#" class="block py-3 px-2 text-pink-600 font-semibold border-l-4 border-pink-600 bg-pink-50">Novedades</a></li>
+        <li><a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Anillos</a></li>
+        <li><a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Pulseras</a></li>
+        <li><a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Collares</a></li>
+        <li><a href="#" class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Relicarios</a></li>
+        <li class="flex gap-4 px-2 py-3">
+            <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl"><i class="fas fa-search"></i></a>
+            <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl"><i class="fas fa-user"></i></a>
+            <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl relative">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+            </a>
+        </li>
+        </ul>
+    </div>
     </nav>
-
+    <div class="md:ml-56">  
     <!-- Hero Section -->
     <div class="relative bg-pink-100 overflow-hidden">
         <div class="max-w-7xl mx-auto">
@@ -530,7 +537,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     <script>
         // Mobile menu toggle
         const btn = document.querySelector(".mobile-menu-button");
