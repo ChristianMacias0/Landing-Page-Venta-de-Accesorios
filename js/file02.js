@@ -1,3 +1,9 @@
+"use strict";
+
+/**
+ * Objeto que contiene los arrays de rutas de imágenes para cada categoría de accesorios.
+ * @type {Object.<string, string[]>}
+ */
 const imagenes = {
     collares: [
         "resources/collares/collares1.png",
@@ -26,6 +32,12 @@ const imagenes = {
     ]
 };
 
+/**
+ * Renderiza las imágenes de una categoría específica en el contenedor indicado.
+ * @param {string} categoria - Nombre de la categoría (collares, pulseras, anillos, relicarios).
+ * @param {string} contenedorId - ID del elemento HTML donde se insertarán las imágenes.
+ * @returns {void}
+ */
 function renderImagenes(categoria, contenedorId) {
     const contenedor = document.getElementById(contenedorId);
     if (!contenedor) return;
@@ -39,6 +51,10 @@ function renderImagenes(categoria, contenedorId) {
     });
 }
 
+/**
+ * Inicializa la renderización de imágenes para cada categoría al cargar el DOM.
+ * @returns {void}
+ */
 document.addEventListener("DOMContentLoaded", function() {
     renderImagenes('collares', 'collares');
     renderImagenes('pulseras', 'pulseras');
@@ -46,7 +62,10 @@ document.addEventListener("DOMContentLoaded", function() {
     renderImagenes('relicarios', 'relicarios');
 });
 
-// Scroll suave para los enlaces del menú
+/**
+ * Agrega scroll suave a los enlaces internos del menú.
+ * @returns {void}
+ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -57,4 +76,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
+});
+
+/**
+ * Muestra u oculta el menú móvil al hacer clic en el ícono de hamburguesa.
+ * @returns {void}
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.querySelector(".mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+    if (btn && menu) {
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    }
 });
