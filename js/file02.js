@@ -1,42 +1,61 @@
 const imagenes = {
     collares: [
-        "resources/collares/collares1.png",
-        "resources/collares/collares2.png",
-        "resources/collares/collares3.png",
-        "resources/collares/collares4.png",
-        "resources/collares/collares5.png",
-        "resources/collares/collares6.png",
-        "resources/collares/collares7.png"
+        { src: "resources/collares/collares1.png", precio: "Valor: $xx" },
+        { src: "resources/collares/collares2.png", precio: "Valor: $xx" },
+        { src: "resources/collares/collares3.png", precio: "Valor: $xx" },
+        { src: "resources/collares/collares4.png", precio: "Valor: $xx" },
+        { src: "resources/collares/collares5.png", precio: "Valor: $xx" },
+        { src: "resources/collares/collares6.png", precio: "Valor: $xx" },
+        { src: "resources/collares/collares7.png", precio: "Valor: $xx" }
     ],
     pulseras: [
-        "resources/pulseras/pulseras1.png",
-        "resources/pulseras/pulseras2.png",
-        "resources/pulseras/pulseras3.png"
+        { src: "resources/pulseras/pulseras1.png", precio: "Valor: $xx" },
+        { src: "resources/pulseras/pulseras2.png", precio: "Valor: $xx" },
+        { src: "resources/pulseras/pulseras3.png", precio: "Valor: $xx" }
     ],
     anillos: [
-        "resources/anillos/anillos1.png",
-        "resources/anillos/anillos2.png"
+        { src: "resources/anillos/anillos1.png", precio: "Valor: $xx" },
+        { src: "resources/anillos/anillos2.png", precio: "Valor: $xx" }
     ],
     relicarios: [
-        "resources/relicarios/relicarios1.png",
-        "resources/relicarios/relicarios2.png",
-        "resources/relicarios/relicarios3.png",
-        "resources/relicarios/relicarios4.png",
-        "resources/relicarios/relicarios5.png" 
+        { src: "resources/relicarios/relicarios1.png", precio: "Valor: $xx" },
+        { src: "resources/relicarios/relicarios2.png", precio: "Valor: $xx" },
+        { src: "resources/relicarios/relicarios3.png", precio: "Valor: $xx" },
+        { src: "resources/relicarios/relicarios4.png", precio: "Valor: $xx" },
+        { src: "resources/relicarios/relicarios5.png", precio: "Valor: $xx" }
     ]
 };
 
 function renderImagenes(categoria, contenedorId) {
     const contenedor = document.getElementById(contenedorId);
     if (!contenedor) return;
-    imagenes[categoria].forEach(src => {
+    imagenes[categoria].forEach(({ src, precio }) => {
         const div = document.createElement('div');
-        div.className = "bg-gray-100 rounded-lg overflow-hidden";
+        div.className = "bg-gray-100 rounded-lg overflow-hidden flex flex-col items-center";
         div.innerHTML = `
-            <img src="${src}" alt="${categoria}" class="w-full h-64 object-cover transition-opacity hover:opacity-75">
+            <img src="${src}" alt="${categoria}" class="w-full h-64 object-cover transition-opacity hover:opacity-75 cursor-pointer modal-trigger">
+            <span class="block mt-2 mb-2 text-pink-600 font-semibold">${precio}</span>
         `;
+        // Evento para expandir imagen
+        div.querySelector('.modal-trigger').addEventListener('click', () => {
+            openModal(src, precio);
+        });
         contenedor.appendChild(div);
     });
+}
+
+// Modal
+function openModal(src, precio) {
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalPrice = document.getElementById('modal-price');
+    modalImg.src = src;
+    modalPrice.textContent = precio;
+    modal.classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('image-modal').classList.add('hidden');
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -44,6 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
     renderImagenes('pulseras', 'pulseras');
     renderImagenes('anillos', 'anillos');
     renderImagenes('relicarios', 'relicarios');
+
+    // Cerrar modal al hacer click fuera de la imagen o en el botón de cerrar
+    document.getElementById('image-modal').addEventListener('click', function(e) {
+        if (e.target === this || e.target.id === 'close-modal') {
+            closeModal();
+        }
+    });
 });
 
 // Scroll suave para los enlaces del menú
