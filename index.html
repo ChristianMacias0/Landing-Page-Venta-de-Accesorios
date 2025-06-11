@@ -8,14 +8,57 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body class="bg-gray-50 font-sans overflow-x-hidden">
     <!-- Navigation -->
     <nav>
-    <!-- Sidebar Desktop -->
-    <div class="hidden md:fixed md:top-0 md:left-0 md:h-full md:w-56 md:bg-white md:shadow-lg md:flex md:flex-col z-50">
-        <div class="py-8 px-4">
-        <a href="#" class="block font-semibold text-gray-500 text-2xl text-center">Perlisse Accesorios</a>
+        <!-- Sidebar Desktop -->
+        <div
+            class="hidden md:fixed md:top-0 md:left-0 md:h-full md:w-56 md:bg-white md:shadow-lg md:flex md:flex-col z-50">
+            <div class="py-8 px-4">
+                <a href="#" class="block font-semibold text-gray-500 text-2xl text-center">Perlisse Accesorios</a>
+            </div>
+            <ul class="flex flex-col gap-2 px-4">
+                <li>
+                    <a href="#"
+                        class="block py-3 px-2 text-pink-600 font-semibold border-l-4 border-pink-600 bg-pink-50">Novedades</a>
+                </li>
+                <li>
+                    <a href="#collares-section"
+                        class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Collares</a>
+                </li>
+                <li>
+                    <a href="#pulseras-section"
+                        class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Pulseras</a>
+                </li>
+                <li>
+                    <a href="#anillos-section"
+                        class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Anillos</a>
+                </li>
+                <li>
+                    <a href="#relicarios-section"
+                        class="block py-3 px-2 text-gray-500 font-semibold hover:text-pink-600 transition">Relicarios</a>
+                </li>
+            </ul>
+            <div class="mt-auto flex flex-col items-center gap-4 py-8">
+                <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl"><i
+                        class="fas fa-search"></i></a>
+                <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl"><i class="fas fa-user"></i></a>
+                <a href="#" class="text-gray-500 hover:text-pink-600 transition text-xl relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span
+                        class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </a>
+            </div>
         </div>
+        <!-- Navbar Mobile -->
+        <div class="md:hidden bg-white shadow-lg px-4 py-3 flex justify-between items-center">
+            <a href="#" class="font-semibold text-gray-500 text-xl">Perlisse Accesorios</a>
+            <button class="outline-none mobile-menu-button">
+                <i class="fas fa-bars text-gray-500 text-2xl"></i>
+            </button>
+        </div>
+
         <ul class="flex flex-col gap-2 px-4">
         <li>
             <a href="#" class="block py-3 px-2 text-pink-600 font-semibold border-l-4 border-pink-600 bg-pink-50">Novedades</a>
@@ -67,37 +110,56 @@
                             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                                 Descubre collares, pulseras, anillos y relicarios únicos para mujeres y niñas. ¡Encuentra el accesorio perfecto para ti o para regalar!
                             </p>
+
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+                <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                    alt="Fashion model">
+            </div>
         </div>
+
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 flex items-center justify-center bg-white">
             <img class="h-56 w-auto mx-auto sm:h-72 md:h-96 lg:w-auto lg:h-80" src="resources/logo.png" alt="Logo Perlisse Accesorios">
         </div>
     </div>
 
-    <!-- Categories Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="imagenes-categorias">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Nuestros Accesorios</h2>
-        <div id="collares-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Collares</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="collares"></div>
-        </div>
-        <div id="pulseras-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Pulseras</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="pulseras"></div>
-        </div>
-        <div id="anillos-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Anillos</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="anillos"></div>
-        </div>
-        <div id="relicarios-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Relicarios</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="relicarios"></div>
-        </div>
-    </div>
 
+                    <!-- Skeleton Card -->
+                    <div class="animate-pulse space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
+                        <div class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+                        <div class="h-6 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div>
+                        <div class="h-5 bg-gray-300 dark:bg-gray-700 rounded w-1/2"></div>
+                        <div class="space-y-2">
+                            <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+                            <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded w-5/6"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skeleton Card -->
+                    <div class="animate-pulse space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
+                        <div class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+                        <div class="h-6 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div>
+                        <div class="h-5 bg-gray-300 dark:bg-gray-700 rounded w-1/2"></div>
+                        <div class="space-y-2">
+                            <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+                            <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded w-5/6"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skeleton Card -->
+                    <div class="animate-pulse space-y-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow">
+                        <div class="w-full h-40 bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+                        <div class="h-6 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div>
+                        <div class="h-5 bg-gray-300 dark:bg-gray-700 rounded w-1/2"></div>
+                        <div class="space-y-2">
+                            <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+                            <div class="h-3 bg-gray-300 dark:bg-gray-700 rounded w-5/6"></div>
+                        </div>
+                    </div>
 
 
     <!-- Footer -->
@@ -136,5 +198,7 @@
     </div>
 
     <script src="js/file02.js"></script>
+
 </body>
+
 </html>

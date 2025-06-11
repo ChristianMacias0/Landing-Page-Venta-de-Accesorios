@@ -1,3 +1,9 @@
+"use strict";
+
+/**
+ * Objeto que contiene los arrays de rutas de imágenes para cada categoría de accesorios.
+ * @type {Object.<string, string[]>}
+ */
 const imagenes = {
     collares: [
         { src: "resources/collares/collares1.png", precio: "Valor: $xx" },
@@ -26,6 +32,12 @@ const imagenes = {
     ]
 };
 
+/**
+ * Renderiza las imágenes de una categoría específica en el contenedor indicado.
+ * @param {string} categoria - Nombre de la categoría (collares, pulseras, anillos, relicarios).
+ * @param {string} contenedorId - ID del elemento HTML donde se insertarán las imágenes.
+ * @returns {void}
+ */
 function renderImagenes(categoria, contenedorId) {
     const contenedor = document.getElementById(contenedorId);
     if (!contenedor) return;
@@ -44,6 +56,7 @@ function renderImagenes(categoria, contenedorId) {
     });
 }
 
+
 // Modal
 function openModal(src, precio) {
     const modal = document.getElementById('image-modal');
@@ -57,6 +70,7 @@ function openModal(src, precio) {
 function closeModal() {
     document.getElementById('image-modal').classList.add('hidden');
 }
+
 
 document.addEventListener("DOMContentLoaded", function() {
     renderImagenes('collares', 'collares');
@@ -72,7 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Scroll suave para los enlaces del menú
+/**
+ * Agrega scroll suave a los enlaces internos del menú.
+ * @returns {void}
+ */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -85,6 +102,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
 document.addEventListener('DOMContentLoaded', function () {
   const btn = document.querySelector('.mobile-menu-button');
   const menu = document.querySelector('.mobile-menu');
@@ -93,4 +111,5 @@ document.addEventListener('DOMContentLoaded', function () {
       menu.classList.toggle('hidden');
     });
   }
+
 });
