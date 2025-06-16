@@ -52,7 +52,7 @@
         </ul>
     </div>
     </nav>
-    <div class="md:ml-56">  
+    <div class="md:ml-56">
     <!-- Hero Section -->
     <div class="relative bg-pink-100 overflow-hidden">
         <div class="max-w-7xl mx-auto">
@@ -78,51 +78,39 @@
     </div>
 
     <!-- Categories Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" id="imagenes-categorias">
-        <h2 class="text-2xl font-bold text-gray-900 mb-8">Nuestros Accesorios</h2>
-        <div id="collares-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Collares</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="collares"></div>
-        </div>
-        <div id="pulseras-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Pulseras</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="pulseras"></div>
-        </div>
-        <div id="anillos-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Anillos</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="anillos"></div>
-        </div>
-        <div id="relicarios-section" class="mb-10">
-            <h3 class="text-xl font-semibold text-pink-600 mb-4">Relicarios</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="relicarios"></div>
+    <div class="md:ml-56">
+        <!-- Collares -->
+        <section id="collares-section" class="py-8 px-4">
+            <h2 class="text-2xl font-bold mb-4 text-center">Collares</h2>
+            <div id="collares" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </section>
+        <!-- Pulseras -->
+        <section id="pulseras-section" class="py-8 px-4">
+            <h2 class="text-2xl font-bold mb-4 text-center">Pulseras</h2>
+            <div id="pulseras" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </section>
+        <!-- Anillos -->
+        <section id="anillos-section" class="py-8 px-4">
+            <h2 class="text-2xl font-bold mb-4 text-center">Anillos</h2>
+            <div id="anillos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </section>
+        <!-- Relicarios -->
+        <section id="relicarios-section" class="py-8 px-4">
+            <h2 class="text-2xl font-bold mb-4 text-center">Relicarios</h2>
+            <div id="relicarios" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </section>
+    </div>
+
+    <!-- Modal para mostrar imagen expandida -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-4 relative max-w-lg w-full flex flex-col items-center">
+            <button id="close-modal" class="absolute top-2 right-2 text-gray-500 hover:text-pink-600 text-2xl">&times;</button>
+            <img id="modal-img" src="" alt="" class="rounded-lg max-h-96 mb-4">
+            <span id="modal-price" class="text-pink-600 font-semibold"></span>
         </div>
     </div>
 
-    <section class="flex flex-col items-center justify-center bg-white py-8">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Vota por tu producto preferido</h2>
-
-        <div class="mb-6">
-        <form id="form_voting" class="relative flex items-center">
-            <select id="select_product"
-                class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                <option value="" disabled selected>Seleccione un producto</option>
-                <option value="product1">Producto 1</option>
-                <option value="product2">Producto 2</option>
-                <option value="product3">Producto 3</option>
-            </select>
-            <button
-                class="ml-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                VOTAR
-            </button>
-        </form>
-        </div>
-
-        <div id="results" class="border border-gray-300 rounded-lg h-52 w-full p-2 bg-gray-50">
-            <p class="text-gray-500 text-center mt-16">Resultado de la votación</p>
-        </div>
-        </div>
-    </section>
+    
 
     <!-- Footer -->
     <footer class="bg-white">
@@ -160,6 +148,6 @@
     </div>
 
     <script type="module" src="js/file01.js"></script>
-    <script src="js/file02.js"></script>
+    <script type="module" src="js/file02.js"></script>
 </body>
 </html>

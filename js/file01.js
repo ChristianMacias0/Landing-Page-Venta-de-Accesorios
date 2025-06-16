@@ -1,6 +1,7 @@
 "use strict";
 
 import { saveVote, getVotes } from "./firebase.js";
+import { incrementProductView } from "./firebase.js"; 
 
 /**
  * Muestra la notificación interactiva si existe el elemento con el ID 'toast-interactive'.
@@ -97,9 +98,32 @@ const enableForm = () => {
     });
 };
 
+/**
+ * Agrega listeners a todas las imágenes de productos para registrar los clics.
+ */
+const enableProductClickTracking = () => {
+    // Selecciona todos los contenedores de productos
+    const categorias = ['collares', 'pulseras', 'anillos', 'relicarios'];
+    categorias.forEach(cat => {
+        const container = document.getElementById(cat);
+        if (container) {
+            container.addEventListener('click', (e) => {
+                const img = e.target.closest('img[data-product-id]');
+                if (img) {
+                    const productID = img.getAttribute('data-product-id');
+                    if (productID) {
+                        incrementProductView(productID);
+                    }
+                }
+            });
+        }
+    });
+};
+
 (() => {
     showToast();
     showVideo();
     enableForm();
     displayVotes(); // Mostrar votos al cargar la página
+    enableProductClickTracking(); // Habilitar seguimiento de clics en productos
 })();

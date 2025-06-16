@@ -1,6 +1,6 @@
 // Importar funciones de Firebase desde el CDN
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getDatabase, ref, set, push, get, child } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+import { getDatabase, ref, set, push, get, child, runTransaction } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
 
 // Configuración de Firebase usando variables de entorno de Vite
 const firebaseConfig = {
@@ -55,3 +55,16 @@ export async function getVotes() {
     return { success: false, message: 'Error al obtener los votos.', error };
   }
 }
+
+/**
+ * Incrementa la vista de un producto en la colección 'productosmasvistos'.
+ * @param {string} productID - El ID del producto.
+ */
+export async function incrementProductView(productID) {
+    const db = getDatabase();
+    const productRef = ref(db, `productosmasvistos/${productID}/count`);
+    await runTransaction(productRef, (currentCount) => {
+        return (currentCount || 0) + 1;
+    });
+}
+
