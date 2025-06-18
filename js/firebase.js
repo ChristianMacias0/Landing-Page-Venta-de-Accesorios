@@ -68,3 +68,21 @@ export async function incrementProductView(productID) {
     });
 }
 
+/**
+ * Obtiene los n productos más vistos de la colección 'productosmasvistos'.
+ * @param {number} n - El número de productos a obtener.
+ * @returns {Promise<object[]>} - Lista de productos con su contador de vistas.
+ */
+export async function obtenerTopProductos(n = 3) {
+  const response = await fetch('https://prueba-18913-default-rtdb.firebaseio.com/productosmasvistos.json');
+  const data = await response.json();
+
+  return Object.entries(data || {})
+    .sort((a, b) => b[1].count - a[1].count)
+    .slice(0, n)
+    .map(([id, info]) => ({
+      id,
+      count: info.count
+    }));
+}
+

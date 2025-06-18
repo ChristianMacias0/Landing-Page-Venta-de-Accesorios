@@ -1,4 +1,6 @@
-import { incrementProductView } from "./firebase.js";
+import { incrementProductView, obtenerTopProductos } from "./firebase.js";
+
+
 
 /**
  * Definición de productos por categoría según la carpeta /resources.
@@ -31,7 +33,6 @@ const productos = {
     { nombre: "relicarios5", src: "resources/relicarios/relicarios5.png", precio: "$xx" }
   ]
 };
-
 /**
  * Renderiza los productos en sus respectivos contenedores.
  * Al hacer clic en una imagen, abre el modal y registra la vista en la base de datos.
@@ -127,3 +128,42 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Función para buscar un producto por nombre en todas las categorías
+function buscarProductoPorNombre(nombre) {
+  for (const categoria in productos) {
+    const producto = productos[categoria].find(p => p.nombre === nombre);
+    if (producto) return producto;
+  }
+  return null;
+}
+
+async function mostrarTopProductos() {
+  const topProductos = await obtenerTopProductos(3);
+  const lista = document.getElementById('top-products-list');
+  lista.innerHTML = '';
+
+  topProductos.forEach(({ id, count }) => {
+    const producto = buscarProductoPorNombre(id);
+    if (!producto) return;
+
+    const li = document.createElement('li');
+    li.className = "bg-white rounded-xl shadow-md flex flex-col items-center p-4 min-w-[200px]";
+
+    li.innerHTML = `
+      <div class="flex flex-col items-center">
+        <div class="w-24 h-24 mb-3 flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden">
+          <img src="${producto.src}" alt="${producto.nombre}" class="object-contain w-full h-full"/>
+        </div>
+        <div class="text-center">
+          <h3 class="font-semibold text-lg mb-1">${producto.nombre}</h3>
+          <p class="text-gray-700 mb-1">Precio: <span class="font-bold">${producto.precio}</span></p>
+          <p class="text-sm text-gray-500">Visto <span class="font-bold">${count}</span> veces</p>
+        </div>
+      </div>
+    `;
+    lista.appendChild(li);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', mostrarTopProductos);
