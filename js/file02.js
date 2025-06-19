@@ -158,7 +158,7 @@ async function mostrarTopProductos() {
         <div class="text-center">
           <h3 class="font-semibold text-lg mb-1">${producto.nombre}</h3>
           <p class="text-gray-700 mb-1">Precio: <span class="font-bold">${producto.precio}</span></p>
-          <p class="text-sm text-gray-500">Visto <span class="font-bold">${count}</span> veces</p>
+          <p class="text-sm text-gray-500">Visto <span class="font-bold">${count/2}</span> veces</p>
         </div>
       </div>
     `;

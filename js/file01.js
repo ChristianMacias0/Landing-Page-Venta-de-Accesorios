@@ -120,6 +120,24 @@ const enableProductClickTracking = () => {
     });
 };
 
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('newsletter-form');
+  const emailInput = document.getElementById('newsletter-email');
+  const msg = document.getElementById('newsletter-msg');
+  if (form && emailInput && msg) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // Simulación de suscripción exitosa
+      msg.textContent = "¡Gracias! Te avisaremos de novedades en la página.";
+      msg.classList.remove('hidden');
+      form.reset();
+      setTimeout(() => {
+        msg.classList.add('hidden');
+      }, 4000);
+    });
+  }
+});
+
 (() => {
     showToast();
     showVideo();
