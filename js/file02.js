@@ -8,29 +8,29 @@ import { incrementProductView, obtenerTopProductos } from "./firebase.js";
  */
 const productos = {
   collares: [
-    { nombre: "collares1", src: "resources/collares/collares1.png", precio: "$xx" },
-    { nombre: "collares2", src: "resources/collares/collares2.png", precio: "$xx" },
-    { nombre: "collares3", src: "resources/collares/collares3.png", precio: "$xx" },
-    { nombre: "collares4", src: "resources/collares/collares4.png", precio: "$xx" },
-    { nombre: "collares5", src: "resources/collares/collares5.png", precio: "$xx" },
-    { nombre: "collares6", src: "resources/collares/collares6.png", precio: "$xx" },
-    { nombre: "collares7", src: "resources/collares/collares7.png", precio: "$xx" }
+    { nombre: "collares1", src: "resources/collares/collares1.png", precio: "$2.00" },
+    { nombre: "collares2", src: "resources/collares/collares2.png", precio: "$2.00" },
+    { nombre: "collares3", src: "resources/collares/collares3.png", precio: "$2.50" },
+    { nombre: "collares4", src: "resources/collares/collares4.png", precio: "$2.00" },
+    { nombre: "collares5", src: "resources/collares/collares5.png", precio: "$2.50" },
+    { nombre: "collares6", src: "resources/collares/collares6.png", precio: "$2.50" },
+    { nombre: "collares7", src: "resources/collares/collares7.png", precio: "$2.00" }
   ],
   pulseras: [
-    { nombre: "pulseras1", src: "resources/pulseras/pulseras1.png", precio: "$xx" },
-    { nombre: "pulseras2", src: "resources/pulseras/pulseras2.png", precio: "$xx" },
-    { nombre: "pulseras3", src: "resources/pulseras/pulseras3.png", precio: "$xx" }
+    { nombre: "pulseras1", src: "resources/pulseras/pulseras1.png", precio: "$1.00" },
+    { nombre: "pulseras2", src: "resources/pulseras/pulseras2.png", precio: "$1.50" },
+    { nombre: "pulseras3", src: "resources/pulseras/pulseras3.png", precio: "$1.00" }
   ],
   anillos: [
-    { nombre: "anillos1", src: "resources/anillos/anillos1.png", precio: "$xx" },
-    { nombre: "anillos2", src: "resources/anillos/anillos2.png", precio: "$xx" }
+    { nombre: "anillos1", src: "resources/anillos/anillos1.png", precio: "$0.50" },
+    { nombre: "anillos2", src: "resources/anillos/anillos2.png", precio: "$0.50" }
   ],
   relicarios: [
-    { nombre: "relicarios1", src: "resources/relicarios/relicarios1.png", precio: "$xx" },
-    { nombre: "relicarios2", src: "resources/relicarios/relicarios2.png", precio: "$xx" },
-    { nombre: "relicarios3", src: "resources/relicarios/relicarios3.png", precio: "$xx" },
-    { nombre: "relicarios4", src: "resources/relicarios/relicarios4.png", precio: "$xx" },
-    { nombre: "relicarios5", src: "resources/relicarios/relicarios5.png", precio: "$xx" }
+    { nombre: "relicarios1", src: "resources/relicarios/relicarios1.png", precio: "$2.00" },
+    { nombre: "relicarios2", src: "resources/relicarios/relicarios2.png", precio: "$1.50" },
+    { nombre: "relicarios3", src: "resources/relicarios/relicarios3.png", precio: "$2.50" },
+    { nombre: "relicarios4", src: "resources/relicarios/relicarios4.png", precio: "$1.50" },
+    { nombre: "relicarios5", src: "resources/relicarios/relicarios5.png", precio: "$2.00" }
   ]
 };
 /**
@@ -142,8 +142,8 @@ async function mostrarTopProductos() {
   const topProductos = await obtenerTopProductos(3);
   const lista = document.getElementById('top-products-list');
   lista.innerHTML = '';
-
-  topProductos.forEach(({ id, count }) => {
+  
+  topProductos.forEach(({ id, count }, index) => {
     const producto = buscarProductoPorNombre(id);
     if (!producto) return;
 
@@ -156,7 +156,7 @@ async function mostrarTopProductos() {
           <img src="${producto.src}" alt="${producto.nombre}" class="object-contain w-full h-full"/>
         </div>
         <div class="text-center">
-          <h3 class="font-semibold text-lg mb-1">${producto.nombre}</h3>
+          <h3 class="font-semibold text-lg mb-1">Top ${index + 1}</h3>
           <p class="text-gray-700 mb-1">Precio: <span class="font-bold">${producto.precio}</span></p>
           <p class="text-sm text-gray-500">Visto <span class="font-bold">${count/2}</span> veces</p>
         </div>
@@ -164,6 +164,7 @@ async function mostrarTopProductos() {
     `;
     lista.appendChild(li);
   });
+
 }
 
 document.addEventListener('DOMContentLoaded', mostrarTopProductos);
