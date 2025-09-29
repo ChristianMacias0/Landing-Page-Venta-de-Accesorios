@@ -17,8 +17,8 @@ const productos = {
   ],
   pulseras: [
     { nombre: "pulseras1", src: "/resources/pulseras/pulseras1.png", precio: "$1.00" },
-    { nombre: "pulseras2", src: "/resources/pulseras/pulseras2.png", precio: "$1.50" },
-    { nombre: "pulseras3", src: "/resources/pulseras/pulseras3.png", precio: "$1.00" }
+    { nombre: "pulseras2", src: "/resources/pulseras/pulseras2.png", precio: "$1.00" },
+    { nombre: "pulseras3", src: "/resources/pulseras/pulseras3.png", precio: "$1.50" }
   ],
   anillos: [
     { nombre: "anillos1", src: "/resources/anillos/anillos1.png", precio: "$0.50" },
@@ -26,9 +26,9 @@ const productos = {
   ],
   relicarios: [
     { nombre: "relicarios2", src: "/resources/relicarios/relicarios2.png", precio: "$3.00" },
-    { nombre: "relicarios3", src: "/resources/relicarios/relicarios3.png", precio: "$2.50" },
-    { nombre: "relicarios4", src: "/resources/relicarios/relicarios4.png", precio: "$1.50" },
-    { nombre: "relicarios5", src: "/resources/relicarios/relicarios5.png", precio: "$2.00" }
+    { nombre: "relicarios3", src: "/resources/relicarios/relicarios3.png", precio: "$3.00" },
+    { nombre: "relicarios4", src: "/resources/relicarios/relicarios4.png", precio: "$3.00" },
+    { nombre: "relicarios5", src: "/resources/relicarios/relicarios5.png", precio: "$3.00" }
   ]
 };
 /**
