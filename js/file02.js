@@ -137,32 +137,35 @@ function buscarProductoPorNombre(nombre) {
 }
 
 async function mostrarTopProductos() {
-  const topProductos = await obtenerTopProductos(3);
+  const topProductos = await obtenerTopProductos(10); // Trae más por si hay eliminados
   const lista = document.getElementById('top-products-list');
   lista.innerHTML = '';
-  
-  topProductos.forEach(({ id, count }, index) => {
+
+  let topCount = 0;
+  let index = 0;
+  while (topCount < 3 && index < topProductos.length) {
+    const { id, count } = topProductos[index];
     const producto = buscarProductoPorNombre(id);
-    if (!producto) return;
-
-    const li = document.createElement('li');
-    li.className = "bg-white rounded-xl shadow-md flex flex-col items-center p-4 min-w-[200px]";
-
-    li.innerHTML = `
-      <div class="flex flex-col items-center">
-        <div class="w-24 h-24 mb-3 flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden">
-          <img src="${producto.src}" alt="${producto.nombre}" class="object-contain w-full h-full"/>
+    if (producto) {
+      const li = document.createElement('li');
+      li.className = "bg-white rounded-xl shadow-md flex flex-col items-center p-4 min-w-[200px]";
+      li.innerHTML = `
+        <div class="flex flex-col items-center">
+          <div class="w-24 h-24 mb-3 flex items-center justify-center bg-gray-100 rounded-lg overflow-hidden">
+            <img src="${producto.src}" alt="${producto.nombre}" class="object-contain w-full h-full"/>
+          </div>
+          <div class="text-center">
+            <h3 class="font-semibold text-lg mb-1">Top ${topCount + 1}</h3>
+            <p class="text-gray-700 mb-1">Precio: <span class="font-bold">${producto.precio}</span></p>
+            <p class="text-sm text-gray-500">Visto <span class="font-bold">${count/2}</span> veces</p>
+          </div>
         </div>
-        <div class="text-center">
-          <h3 class="font-semibold text-lg mb-1">Top ${index + 1}</h3>
-          <p class="text-gray-700 mb-1">Precio: <span class="font-bold">${producto.precio}</span></p>
-          <p class="text-sm text-gray-500">Visto <span class="font-bold">${count/2}</span> veces</p>
-        </div>
-      </div>
-    `;
-    lista.appendChild(li);
-  });
-
+      `;
+      lista.appendChild(li);
+      topCount++;
+    }
+    index++;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', mostrarTopProductos);
