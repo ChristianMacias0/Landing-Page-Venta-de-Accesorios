@@ -8,11 +8,10 @@ import { incrementProductView, obtenerTopProductos } from "./firebase.js";
  */
 const productos = {
   collares: [
-    { nombre: "collares1", src: "/resources/collares/collares1.png", precio: "$2.00" },
     { nombre: "collares2", src: "/resources/collares/collares2.png", precio: "$2.00" },
-    { nombre: "collares3", src: "/resources/collares/collares3.png", precio: "$2.50" },
+    { nombre: "collares3", src: "/resources/collares/collares3.png", precio: "$2.00" },
     { nombre: "collares4", src: "/resources/collares/collares4.png", precio: "$2.00" },
-    { nombre: "collares5", src: "/resources/collares/collares5.png", precio: "$2.50" },
+    { nombre: "collares5", src: "/resources/collares/collares5.png", precio: "$2.00" },
     { nombre: "collares6", src: "/resources/collares/collares6.png", precio: "$2.50" },
     { nombre: "collares7", src: "/resources/collares/collares7.png", precio: "$2.00" }
   ],
@@ -26,8 +25,7 @@ const productos = {
     { nombre: "anillos2", src: "/resources/anillos/anillos2.png", precio: "$0.50" }
   ],
   relicarios: [
-    { nombre: "relicarios1", src: "/resources/relicarios/relicarios1.png", precio: "$2.00" },
-    { nombre: "relicarios2", src: "/resources/relicarios/relicarios2.png", precio: "$1.50" },
+    { nombre: "relicarios2", src: "/resources/relicarios/relicarios2.png", precio: "$3.00" },
     { nombre: "relicarios3", src: "/resources/relicarios/relicarios3.png", precio: "$2.50" },
     { nombre: "relicarios4", src: "/resources/relicarios/relicarios4.png", precio: "$1.50" },
     { nombre: "relicarios5", src: "/resources/relicarios/relicarios5.png", precio: "$2.00" }
